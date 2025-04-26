@@ -1,74 +1,344 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórias Incríveis</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Gelotron - Servindo bebidas geladas de verdade</title>
+    <style>
+        :root {
+            --primary: #00a0e1; /* Azul tecnológico */
+            --secondary: #e53935; /* Vermelho vibrante */
+            --dark: #1a1a2e; /* Fundo escuro */
+            --light: #f8f9fa; /* Texto claro */
+            --accent: #4dd0e1; /* Azul claro para destaques */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /><path fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" d="M0,50 Q25,25 50,50 T100,50" /></svg>');
+            background-size: 100px 100px;
+            opacity: 0.5;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent), var(--light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0;
+            color: var(--accent);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-card h3 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card h3::before {
+            content: "➤";
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .price-box {
+            background: rgba(0, 160, 225, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            background: #000;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+        }
+        
+        /* Efeitos geek */
+        .tech-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            background: 
+                linear-gradient(90deg, var(--dark) 21px, transparent 1%) center,
+                linear-gradient(var(--dark) 21px, transparent 1%) center,
+                var(--primary);
+            background-size: 22px 22px;
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px var(--accent);
+        }
+    </style>
 </head>
 <body>
+    <div class="tech-bg"></div>
+    
     <header>
-        <div class="container">
-            <h1>Histórias Incríveis por Andie oliver:. </h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#stories">Histórias</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
+        <div class="header-content">
+            <div class="container">
+                <h1>Gelotron</h1>
+                <p class="tagline">Servindo bebidas geladas de verdade</p>
+                <a href="#contato" class="btn">Encomendar agora</a>
+            </div>
         </div>
     </header>
-    <main>
-        <section id="home">
-            <div class="container">
-                <h2>Bem-vindo ao nosso site de histórias!</h2>
-                <p>Explore uma coleção de histórias incríveis escritas por autores talentosos.</p>
+    
+    <main class="container">
+        <section id="sobre">
+            <h2>O que é o Gelotron?</h2>
+            <p>Um robô compacto, funcional e estiloso, criado para abrir a geladeira e servir bebidas automaticamente. Equipado com sensores ultrassônicos e peças em PVC estabilizadas, com sistema de refrigeração totalmente funcional.</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Tecnologia Avançada</h3>
+                    <p>Desenvolvido com Arduino, motores e blocos de Peltier estáveis, garantindo precisão e durabilidade.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Design Customizável</h3>
+                    <p>Estrutura opcional com versão ultrassônica para uso em áreas temáticas, adaptável ao seu estilo.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Multiplataforma</h3>
+                    <p>Funciona em diversos ambientes, desde geladeiras domésticas até sistemas de refrigeração comerciais.</p>
+                </div>
             </div>
         </section>
-        <section id="stories" class="stories-section">
-            <div class="container">
-                <h2>Histórias Recentes</h2>
-                <article>
-                    <h3>Título da História 1</h3>
-                    <p>Resumo da história 1. Uma introdução curta e cativante para atrair o leitor...</p>
-                    <a href="#" class="read-more">Leia Mais</a>
-                </article>
-                <article>
-                    <h3>Título da História 2</h3>
-                    <p>Resumo da história 2. Uma introdução curta e cativante para atrair o leitor...</p>
-                    <a href="#" class="read-more">Leia Mais</a>
-                </article>
-                <!-- Adicione mais artigos conforme necessário -->
+        
+        <section id="aplicacoes">
+            <h2>Aplicações</h2>
+            <p>O Gelotron é ideal para colecionadores geek, bares temáticos, festas, eventos ou até mesmo como decoração interativa com funcionalidade prática.</p>
+            
+            <h3>Ambientes perfeitos para o Gelotron:</h3>
+            <ul style="list-style-type: none;">
+                <li>✔️ Man caves e espaços gamer</li>
+                <li>✔️ Bares e restaurantes futuristas</li>
+                <li>✔️ Festas temáticas e eventos corporativos</li>
+                <li>✔️ Espaços de coworking e áreas comuns</li>
+                <li>✔️ Como peça de colecionador tech</li>
+            </ul>
+        </section>
+        
+        <section id="investimento">
+            <h2>Investimento</h2>
+            
+            <div class="price-box">
+                <p>Modelo padrão com todas as funcionalidades</p>
+                <div class="price">R$ 1.800</div>
+                <p>Projeto sob encomenda - entrega em até 30 dias</p>
+                <a href="#contato" class="btn">Quero o meu</a>
+            </div>
+            
+            <div class="price-box">
+                <p>Versão portátil com painel solar</p>
+                <div class="price">Sob consulta</div>
+                <p>Perfecta para eventos ao ar livre e situações sem acesso à energia</p>
+                <a href="#contato" class="btn">Mais informações</a>
             </div>
         </section>
-        <section id="about">
-            <div class="container">
-                <h2>Sobre Nós</h2>
-                <p>Saiba mais sobre o nosso projeto e a equipe por trás dele.</p>
-            </div>
-        </section>
-        <section id="contact">
-            <div class="container">
-                <h2>Contato</h2>
-                <p>Entre em contato conosco para mais informações ou para enviar sua própria história.</p>
-                <form>
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="message">Mensagem:</label>
-                    <textarea id="message" name="message" required></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
+        
+        <section id="diferenciais">
+            <h2>Diferenciais</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Abre a geladeira automaticamente</h3>
+                    <p>Sistema inteligente que identifica quando você está por perto e abre a porta sem esforço.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Serve bebidas ultrarrápido</h3>
+                    <p>Mecanismo de entrega otimizado que reduz o tempo entre o pedido e o consumo.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Refrigeração ativa</h3>
+                    <p>Não apenas entrega, mas mantém sua bebida na temperatura ideal com tecnologia Peltier.</p>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
+    
+    <footer id="contato">
         <div class="container">
-            <p>&copy; 2024 Histórias Incríveis. Todos os direitos reservados.</p>
+            <h2 class="glow">Entre em contato</h2>
+            <p>Estamos prontos para criar o Gelotron perfeito para você!</p>
+            
+            <div style="margin: 2rem 0;">
+                <a href="mailto:contato@gelotron.com" class="btn">contato@gelotron.com</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">📸</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Facebook">👍</a>
+                <a href="#" aria-label="YouTube">▶️</a>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+                © 2023 Gelotron - Todos os direitos reservados | Tecnologia que refresca
+            </p>
         </div>
     </footer>
 </body>
