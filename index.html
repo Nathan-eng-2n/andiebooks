@@ -6,11 +6,11 @@
     <title>Gelotron - Servindo bebidas geladas de verdade</title>
     <style>
         :root {
-            --primary: #00a0e1; /* Azul tecnológico */
-            --secondary: #e53935; /* Vermelho vibrante */
-            --dark: #1a1a2e; /* Fundo escuro */
-            --light: #f8f9fa; /* Texto claro */
-            --accent: #4dd0e1; /* Azul claro para destaques */
+            --primary: #7EC8E3; /* Azul claro suave */
+            --secondary: #F5E6CA; /* Cor creme */
+            --dark: #34495E; /* Azul escuro suave */
+            --light: #F8F5F0; /* Branco cremoso */
+            --accent: #86C5D8; /* Azul claro acentuado */
         }
         
         * {
@@ -21,17 +21,18 @@
         }
         
         body {
-            background-color: var(--dark);
-            color: var(--light);
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             padding: 2rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .header-content {
@@ -46,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /><path fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" d="M0,50 Q25,25 50,50 T100,50" /></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z" /><path fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" d="M0,50 Q25,25 50,50 T100,50" /></svg>');
             background-size: 100px 100px;
             opacity: 0.5;
         }
@@ -54,10 +55,8 @@
         h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--accent), var(--light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
             text-transform: uppercase;
             letter-spacing: 3px;
         }
@@ -65,7 +64,8 @@
         .tagline {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            color: var(--accent);
+            color: white;
+            font-weight: 300;
         }
         
         .container {
@@ -76,13 +76,13 @@
         
         section {
             padding: 4rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
         h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: var(--primary);
+            color: var(--dark);
             position: relative;
             display: inline-block;
         }
@@ -94,18 +94,19 @@
             left: 0;
             width: 50%;
             height: 3px;
-            background: var(--secondary);
+            background: var(--primary);
         }
         
         h3 {
             font-size: 1.8rem;
             margin: 1.5rem 0;
-            color: var(--accent);
+            color: var(--dark);
         }
         
         p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+            color: var(--dark);
         }
         
         .features {
@@ -116,49 +117,52 @@
         }
         
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: white;
             border-radius: 10px;
             padding: 2rem;
             transition: transform 0.3s, box-shadow 0.3s;
             border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
         
         .feature-card h3 {
             display: flex;
             align-items: center;
+            color: var(--primary);
         }
         
         .feature-card h3::before {
             content: "➤";
             margin-right: 10px;
-            color: var(--secondary);
+            color: var(--accent);
         }
         
         .price-box {
-            background: rgba(0, 160, 225, 0.1);
+            background: white;
             border: 2px solid var(--primary);
             border-radius: 10px;
             padding: 2rem;
             text-align: center;
             max-width: 500px;
             margin: 2rem auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         
         .price {
             font-size: 3rem;
             font-weight: bold;
-            color: var(--accent);
+            color: var(--primary);
             margin: 1rem 0;
         }
         
         .btn {
             display: inline-block;
-            background: var(--secondary);
+            background: var(--primary);
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
@@ -170,18 +174,20 @@
             border: none;
             cursor: pointer;
             margin-top: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .btn:hover {
-            background: var(--primary);
+            background: var(--accent);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         
         footer {
-            background: #000;
+            background: var(--dark);
             padding: 2rem 0;
             text-align: center;
+            color: white;
         }
         
         .social-links {
@@ -189,14 +195,14 @@
         }
         
         .social-links a {
-            color: var(--light);
+            color: white;
             margin: 0 10px;
             font-size: 1.5rem;
             transition: color 0.3s;
         }
         
         .social-links a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
         
         @media (max-width: 768px) {
@@ -213,7 +219,7 @@
             }
         }
         
-        /* Efeitos geek */
+        /* Efeitos suaves */
         .tech-bg {
             position: fixed;
             top: 0;
@@ -221,16 +227,30 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.05;
+            opacity: 0.03;
             background: 
-                linear-gradient(90deg, var(--dark) 21px, transparent 1%) center,
-                linear-gradient(var(--dark) 21px, transparent 1%) center,
+                linear-gradient(90deg, var(--light) 21px, transparent 1%) center,
+                linear-gradient(var(--light) 21px, transparent 1%) center,
                 var(--primary);
             background-size: 22px 22px;
         }
         
-        .glow {
-            text-shadow: 0 0 10px var(--accent);
+        ul {
+            list-style-type: none;
+        }
+        
+        ul li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        ul li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -273,12 +293,12 @@
             <p>O Gelotron é ideal para colecionadores geek, bares temáticos, festas, eventos ou até mesmo como decoração interativa com funcionalidade prática.</p>
             
             <h3>Ambientes perfeitos para o Gelotron:</h3>
-            <ul style="list-style-type: none;">
-                <li>✔️ Man caves e espaços gamer</li>
-                <li>✔️ Bares e restaurantes futuristas</li>
-                <li>✔️ Festas temáticas e eventos corporativos</li>
-                <li>✔️ Espaços de coworking e áreas comuns</li>
-                <li>✔️ Como peça de colecionador tech</li>
+            <ul>
+                <li>Man caves e espaços gamer</li>
+                <li>Bares e restaurantes futuristas</li>
+                <li>Festas temáticas e eventos corporativos</li>
+                <li>Espaços de coworking e áreas comuns</li>
+                <li>Como peça de colecionador tech</li>
             </ul>
         </section>
         
@@ -322,8 +342,8 @@
     
     <footer id="contato">
         <div class="container">
-            <h2 class="glow">Entre em contato</h2>
-            <p>Estamos prontos para criar o Gelotron perfeito para você!</p>
+            <h2 style="color: white;">Entre em contato</h2>
+            <p style="color: var(--secondary);">Estamos prontos para criar o Gelotron perfeito para você!</p>
             
             <div style="margin: 2rem 0;">
                 <a href="mailto:contato@gelotron.com" class="btn">contato@gelotron.com</a>
@@ -336,7 +356,7 @@
                 <a href="#" aria-label="YouTube">▶️</a>
             </div>
             
-            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7; color: var(--secondary);">
                 © 2023 Gelotron - Todos os direitos reservados | Tecnologia que refresca
             </p>
         </div>
