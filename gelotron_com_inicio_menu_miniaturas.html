@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gelotron - Projeto por Nathan Figueiredo</title>
+  <style>
+    :root {
+      --primary: #7EC8E3;
+      --secondary: #F5E6CA;
+      --dark: #34495E;
+      --light: #F8F5F0;
+      --accent: #86C5D8;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    nav {
+      background-color: var(--dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .menu li {
+      margin: 0 1rem;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .menu a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      padding: 4rem 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    section {
+      margin: 2rem 0;
+      padding: 1rem 0;
+    }
+    h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .thumbnail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .thumb-box {
+      width: 250px;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .thumb-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .thumb-box a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .thumb-box a:hover {
+      background-color: var(--accent);
+    }
+    .detail-img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .caption {
+      font-size: 0.85rem;
+      color: gray;
+      margin-bottom: 2rem;
+    }
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#detalhes">Projetos</a></li>
+      <li><a href="#sobre">Sobre Mim</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Gelotron</h1>
+  </header>
+
+  <main class="container">
+    <section id="inicio">
+      <h2>Início</h2>
+      <div class="thumbnail">
+        <div class="thumb-box">
+          <img src="https://i.ibb.co/CsSHt2Pc/Whats-App-Image-2025-04-24-at-01-13-54.jpg" alt="Capa Gelotron" />
+          <a href="#detalhes">Gelotron</a>
+        </div>
+        <div class="thumb-box">
+          <img src="https://via.placeholder.com/250x150?text=Sobre+Mim" alt="Sobre Mim" />
+          <a href="#sobre">Sobre Mim</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="detalhes">
+      <h2>Detalhes do Projeto</h2>
+      <p>O sistema de refrigeração do Gelotron é um dos componentes mais complexos do projeto. Utilizamos 4 módulos Peltier de 15mm, organizados em dois pares, sendo cada par alimentado por um regulador XL4015 dedicado. Isso garante maior controle da corrente fornecida e estabilidade na operação.</p>
+
+      <img class="detail-img" src="https://i.ibb.co/qFxF6zcQ/Whats-App-Image-2025-05-02-at-23-36-35.jpg" alt="Sistema de Refrigeração do Gelotron - IA">
+      <p class="caption">Imagem ilustrativa gerada por IA. Não representa exatamente o protótipo real.</p>
+
+      <p>O sistema conta com 8 coolers (fans) distribuídos estrategicamente para garantir a dissipação do calor gerado nas Peltiers. Essa ventilação ativa é essencial para evitar o superaquecimento e garantir o funcionamento contínuo da geladeira integrada ao robô.</p>
+
+      <p>Como os módulos Peltier são sensíveis a variações de temperatura e corrente, o projeto inclui sensores de temperatura que serão controlados por um microcontrolador ESP32 ou termostatos, protegendo o sistema de falhas térmicas. O equilíbrio entre a potência, a refrigeração ativa e o isolamento térmico é essencial para o desempenho ideal no resfriamento de bebidas.</p>
+
+      <img class="detail-img" src="https://i.ibb.co/0pky0dgw/Whats-App-Image-2025-05-02-at-23-36-36.jpg" alt="Imagem ilustrativa IA - Sistema de Refrigeração">
+      <p class="caption">Imagem ilustrativa gerada por IA. Não representa exatamente o protótipo real.</p>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <p>Sou Nathan Figueiredo Barbosa, professor de Geografia, técnico em Eletrônica e técnico em Informática. Estudo programação e sistemas embarcados por hobby. Apesar de me considerar pouco talentoso e até burro, tenho uma imaginação fértil que me impulsiona a criar projetos como o Gelotron.</p>
+      <p>Se quiser trocar ideias, conversar ou colaborar em projetos:</p>
+      <ul>
+        <li>Email: <a href="mailto:nathangeoo@gmail.com">nathangeoo@gmail.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/5521977168153" target="_blank">(21) 97716-8153</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Nathan Figueiredo. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
